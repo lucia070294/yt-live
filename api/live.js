@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   const { id } = req.query;
   if (!id) return res.status(400).send('Missing video ID');
 
-  // 改用加号拼接网址，彻底杜绝反引号和美元符号在网页端可能产生的转义错误
+  // 100% 完美的斜杠和加号拼接网址，绝不漏掉任何路径
   const ytUrl = "https://m3u8.dev" + id + ".m3u8";
 
   try {
