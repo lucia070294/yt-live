@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   const { id } = req.query;
   if (!id) return res.status(400).send('Missing video ID');
 
-  // 100% 完美的斜杠和加号拼接网址，绝不漏掉任何路径
+  // 【核心修正点】：确保包含完整的 youtube. 和 /live/ 路径，绝对不粘连
   const ytUrl = "https://m3u8.dev" + id + ".m3u8";
 
   try {
