@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   const { id } = req.query;
   if (!id) return res.status(400).send('Missing video ID');
 
-  const ytUrl = `https://m3u8.dev{id}.m3u8`;
+  const ytUrl = `https://m3u8.dev\${id}.m3u8`;
 
   try {
     // 使用大厂标配的 needle 库发起极速嗅探，100% 解决 fetch failed 报错
